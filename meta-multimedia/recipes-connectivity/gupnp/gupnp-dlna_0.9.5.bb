@@ -5,9 +5,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=4fbd65380cdd255951079008b364516c \
 
 DEPENDS = "libxml2 glib-2.0"
 
-SRC_URI = "http://download.gnome.org/sources/${BPN}/0.9/${BPN}-${PV}.tar.xz"
-SRC_URI[md5sum] = "d972f9b03f0f3793cb895eb034ea314f"
-SRC_URI[sha256sum] = "c28d5650604c7da4f193e6b85049a4885f3a01f1996df768d55b5cb898a9fc53"
+SRC_URI = "${GNOME_MIRROR}/${BPN}/0.9/${BPN}-${PV}.tar.xz"
+SRC_URI[md5sum] = "b0c9e5e6edc5ca6fe854bc53560431bf"
+SRC_URI[sha256sum] = "44a226300287ffbee1899c35775b4b9153930f29433a75d8c1577d8547c29e83"
 
 inherit autotools pkgconfig
 
