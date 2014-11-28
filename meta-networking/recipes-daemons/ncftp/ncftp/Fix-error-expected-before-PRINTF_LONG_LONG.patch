@@ -1,0 +1,35 @@
+From e56135c48f418a1036f05c2432872650e4942c54 Mon Sep 17 00:00:00 2001
+From: Li xin <lixin.fnst@cn.fujitsu.com>
+Date: Fri, 28 Nov 2014 09:21:17 +0900
+Subject: [PATCH 2/2] Fix error: expected ')' before 'PRINTF_LONG_LONG'
+
+Signed-off-by: Li Xin <lixin.fnst@cn.fujitsu.com>
+---
+ ncftp/cmds.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/ncftp/cmds.c b/ncftp/cmds.c
+index 1f491ac..259e660 100644
+--- a/ncftp/cmds.c
++++ b/ncftp/cmds.c
+@@ -945,7 +945,7 @@ EditCmd(const int argc, char **const argv, const CommandPtr cmdp, const ArgvInfo
+ 			--n;
+ 			memset(&st, 0, sizeof(st));
+ 		}
+-		(void) sprintf(modstr, "%u " PRINTF_LONG_LONG, (unsigned int) st.st_mtime, (longest_int) st.st_size);
++		(void) sprintf(modstr, "%u %ld" , (unsigned int) st.st_mtime, (longest_int) st.st_size);
+ 		if (AddLine(&modstrs, modstr) == NULL) {
+ 			DisposeLineListContents(&modstrs);
+ 			DisposeLineListContents(&rfiles);
+@@ -1006,7 +1006,7 @@ EditCmd(const int argc, char **const argv, const CommandPtr cmdp, const ArgvInfo
+ 			(void) fprintf(stdout, "\n");
+ 			continue;
+ 		}
+-		(void) sprintf(modstr, "%u " PRINTF_LONG_LONG, (unsigned int) st.st_mtime, (longest_int) st.st_size);
++		(void) sprintf(modstr, "%u %ld" , (unsigned int) st.st_mtime, (longest_int) st.st_size);
+ 		if (strcmp(modstr, mlp->line) == 0) {
+ 			Trace(-1, "No changes made to \"%s\".\n", rpath);
+ 			continue;
+-- 
+1.8.4.2
+
