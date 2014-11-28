@@ -1,0 +1,12 @@
+[Unit]
+Description=DRBD Service
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/drbd/drbd-helper start
+ExecStop=/usr/lib/drbd/drbd-helper stop
+
+[Install]
+WantedBy=multi-user.target
